@@ -21,6 +21,12 @@ async def test_project(dut):
     dut.uio_in.value = 64
     #dut.uio_in[0].value = 1
     dut.rst_n.value = 0
+    
+    # Enable
+    dut._log.info("Test project behavior")
+    dut.rst_n.value = 1
+    dut.ena.value = 1
+    
     await ClockCycles(dut.clk, 1)
 
     #dut.rst_n.value = 0

@@ -257,7 +257,7 @@ module tt_um_fp_mac(
   assign adder_io_inputA = multiplier_io_output; // @[MAC_TOP.scala 61:19]
   assign adder_io_inputB = resBuff; // @[MAC_TOP.scala 62:19]
   always @(posedge clk) begin
-    if (rst_n) begin // @[MAC_TOP.scala 56:24]
+    if (!rst_n) begin // @[MAC_TOP.scala 56:24]
       resBuff <= 8'h0; // @[MAC_TOP.scala 56:24]
     end else if (_nextval_T) begin // @[MAC_TOP.scala 59:17]
       if (count < 2'h3) begin // @[MAC_TOP.scala 58:20]
@@ -268,7 +268,7 @@ module tt_um_fp_mac(
     end else begin
       resBuff <= 8'h0;
     end
-    if (rst_n) begin // @[MAC_TOP.scala 57:22]
+    if (!rst_n) begin // @[MAC_TOP.scala 57:22]
       count <= 2'h0; // @[MAC_TOP.scala 57:22]
     end else if (count == 2'h3) begin // @[MAC_TOP.scala 64:15]
       count <= 2'h0;

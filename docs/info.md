@@ -16,9 +16,9 @@ The digital block comprises of two sub blocks and a top module that incorporates
 This IEEE 754 format for a 8-bit FP precision for addition and multiplication is implemented. The operations incorporate intricacies and corner cases for handling +/- inf, NaN, Zeros and a full 8-bit precision range. 
 
 | Details of FP8  | Binary Formats |
-| :-----------: | :------------: |
+| :----------- | :------------: |
 |Exponent Bias| 15 |
-|Infinites| S.11111.00_2|
+|Infinites| $$S.11111.00_2$$|
 |||
 |||
 |||

@@ -7,15 +7,27 @@ You can also include images in this folder and reference them in the markdown. E
 512 kb in size, and the combined size of all images must be less than 1 MB.
 -->
 
-## How it works
+## Design 
 
-![GitHub Logo](TT07-block-TOP.png)
+![block diagram](TT07-block-TOP.png)
 
-`ui` should have the two bytes you want added to the CRC8. If you want to restart the internal CRC value, then pull `rst_n` low. That will set it back to the default 0x00. `enable` should be high unless you want to ignore the new calculated value from the specific clock cycle. You can add any number of two byte combinations to it and it will calculate the CRC8 CCITT value for the given combination.
+The digital block comprises of two sub blocks and a top module that incorporates a MAC (multiply-and-accumulate) operation.
 
-<https://crccalc.com> can help you calculate the CRC8 if you want.
+This IEEE 754 format for a 8-bit FP precision for addition and multiplication is implemented. The operations incorporate intricacies and corner cases for handling +/- inf, NaN, Zeros and a full 8-bit precision range. 
 
-The specific polynomial in this case is 1+x^1+x^2+x^8.
+| Details of FP8  | Binary Formats |
+| :-----------: | :------------: |
+|Exponent Bias| 15 |
+|Infinites| S.11111.00_2|
+|||
+|||
+|||
+|||
+|||
+|||
+|||
+
+This format is highly limited in precision and range compared to standard floating-point formats like IEEE 754 single-precision (32-bit) or double-precision (64-bit). It would likely be used in specialized scenarios where memory is at a premium or where precision beyond this level is unnecessary.
 
 ## How to test
 

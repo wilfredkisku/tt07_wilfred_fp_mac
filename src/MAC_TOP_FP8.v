@@ -250,7 +250,7 @@ module tt_um_fp_mac(
   assign uio_out = 0;
   assign uio_oe  = 0;
 
-  assign io_result = resBuff; // @[MAC_TOP.scala 66:13]
+  assign uo_out = resBuff; // @[MAC_TOP.scala 66:13]
   //assign io_valid = count == 2'h3; // @[MAC_TOP.scala 65:21]
   assign multiplier_io_inputA = ui_in; // @[MAC_TOP.scala 51:26]
   assign multiplier_io_inputB = uio_in; // @[MAC_TOP.scala 52:26]

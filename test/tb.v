@@ -22,9 +22,10 @@ module tb ();
   wire [7:0] uo_out;
   wire [7:0] uio_out;
   wire [7:0] uio_oe;
+  //wire valid;
 
   // Replace tt_um_example with your module name:
-  tt_um_aidenfoxivey crc (
+  tt_um_fp_mac dut (
 
       // Include power ports for the Gate Level test:
 `ifdef GL_TEST
@@ -40,6 +41,7 @@ module tb ();
       .ena    (ena),      // enable - goes high when design is selected
       .clk    (clk),      // clock
       .rst_n  (rst_n)     // not reset
+    //  .valid  (valid)
   );
 
 endmodule

@@ -11,30 +11,31 @@ async def test_project(dut):
     dut._log.info("Start")
 
     # Set the clock period to 10 us (100 KHz)
-    clock = Clock(dut.clk, 10, units="us")
+    clock = Clock(dut.clk, 0.02, units="us")
     cocotb.start_soon(clock.start())
 
     # Reset
     dut._log.info("Reset")
     dut.ena.value = 1
-    dut.ui_in.value = 0xAA
-    dut.uio_in.value = 0
-    dut.uio_in[0].value = 1
+    dut.ui_in.value = 0x40
+    dut.uio_in.value = 0x40
+    #dut.uio_in[0].value = 1
     dut.rst_n.value = 0
     await ClockCycles(dut.clk, 1)
 
-    dut.rst_n.value = 1
+    #dut.rst_n.value = 0
     await ClockCycles(dut.clk, 2)
 
-    assert dut.uo_out.value == 0x5F
+    assert dut.uo_out.value == 0x4A
 
-    dut.ui_in.value = 0xBC
-
-    await ClockCycles(dut.clk, 1)
-    assert dut.uo_out.value == 0xC5
-
-    dut.ui_in.value = 0xEF
+    dut.ui_in.value = 0x3A
+    dut.uio_in.value = 0xC0
 
     await ClockCycles(dut.clk, 1)
+    #assert dut.uo_out.value == 0xC5
 
-    assert dut.uo_out.value == 0x68
+    #dut.ui_in.value = 0xEF
+
+    await ClockCycles(dut.clk, 2)
+
+    assert dut.uo_out.value == 0xC4

@@ -9,7 +9,7 @@ You can also include images in this folder and reference them in the markdown. E
 
 ## How it works
 
-![GitHub Logo](https://github.com/wilfredkisku/tt07_wilfred_fp_mac/edit/main/docs/TT07-block-TOP.png?raw=true)
+![GitHub Logo](TT07-block-TOP.png)
 
 `ui` should have the two bytes you want added to the CRC8. If you want to restart the internal CRC value, then pull `rst_n` low. That will set it back to the default 0x00. `enable` should be high unless you want to ignore the new calculated value from the specific clock cycle. You can add any number of two byte combinations to it and it will calculate the CRC8 CCITT value for the given combination.
 

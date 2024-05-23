@@ -256,7 +256,7 @@ module tt_um_fp_mac(
   assign multiplier_io_inputB = uio_in; // @[MAC_TOP.scala 52:26]
   assign adder_io_inputA = multiplier_io_output; // @[MAC_TOP.scala 61:19]
   assign adder_io_inputB = resBuff; // @[MAC_TOP.scala 62:19]
-  always @(posedge clk) begin
+  always @(posedge clk or negedge rst_n) begin
     if (!rst_n) begin // @[MAC_TOP.scala 56:24]
       resBuff <= 8'h0; // @[MAC_TOP.scala 56:24]
     end else if (_nextval_T) begin // @[MAC_TOP.scala 59:17]

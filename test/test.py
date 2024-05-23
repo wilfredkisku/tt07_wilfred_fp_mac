@@ -35,7 +35,7 @@ async def test_project(dut):
     #await ClockCycles(dut.clk, 1)
     await ClockCycles(dut.clk, 4)
 
-    #assert dut.uo_out.value == 0x4A
+    assert dut.uo_out.value == 0x4A
 
     dut.ui_in.value = 0x3A
     dut.uio_in.value = 0xC0
@@ -43,4 +43,4 @@ async def test_project(dut):
     #await ClockCycles(dut.clk, 1)
     await ClockCycles(dut.clk, 4)
 
-    #assert dut.uo_out.value == 0xC4
+    assert dut.uo_out.value == 0xC4

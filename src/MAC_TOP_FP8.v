@@ -222,10 +222,10 @@ module tt_um_fp_mac(
   input        ena     // always 1 when the design is powered, so you can ignore it
   //output       io_valid
 );
-`ifdef RANDOMIZE_REG_INIT
-  reg [31:0] _RAND_0;
-  reg [31:0] _RAND_1;
-`endif // RANDOMIZE_REG_INIT
+// `ifdef RANDOMIZE_REG_INIT
+//   reg [31:0] _RAND_0;
+//   reg [31:0] _RAND_1;
+// `endif // RANDOMIZE_REG_INIT
   wire [7:0] multiplier_io_inputA; // @[MAC_TOP.scala 13:26]
   wire [7:0] multiplier_io_inputB; // @[MAC_TOP.scala 13:26]
   wire [7:0] multiplier_io_output; // @[MAC_TOP.scala 13:26]
@@ -277,50 +277,50 @@ module tt_um_fp_mac(
     end
   end
 // Register and memory initialization
-`ifdef RANDOMIZE_GARBAGE_ASSIGN
-`define RANDOMIZE
-`endif
-`ifdef RANDOMIZE_INVALID_ASSIGN
-`define RANDOMIZE
-`endif
-`ifdef RANDOMIZE_REG_INIT
-`define RANDOMIZE
-`endif
-`ifdef RANDOMIZE_MEM_INIT
-`define RANDOMIZE
-`endif
-`ifndef RANDOM
-`define RANDOM $random
-`endif
-`ifdef RANDOMIZE_MEM_INIT
-  integer initvar;
-`endif
-`ifndef SYNTHESIS
-`ifdef FIRRTL_BEFORE_INITIAL
-`FIRRTL_BEFORE_INITIAL
-`endif
-initial begin
-  `ifdef RANDOMIZE
-    `ifdef INIT_RANDOM
-      `INIT_RANDOM
-    `endif
-    `ifndef VERILATOR
-      `ifdef RANDOMIZE_DELAY
-        #`RANDOMIZE_DELAY begin end
-      `else
-        #0.002 begin end
-      `endif
-    `endif
-`ifdef RANDOMIZE_REG_INIT
-  _RAND_0 = {1{`RANDOM}};
-  resBuff = _RAND_0[7:0];
-  _RAND_1 = {1{`RANDOM}};
-  count = _RAND_1[1:0];
-`endif // RANDOMIZE_REG_INIT
-  `endif // RANDOMIZE
-end // initial
-`ifdef FIRRTL_AFTER_INITIAL
-`FIRRTL_AFTER_INITIAL
-`endif
-`endif // SYNTHESIS
+// `ifdef RANDOMIZE_GARBAGE_ASSIGN
+// `define RANDOMIZE
+// `endif
+// `ifdef RANDOMIZE_INVALID_ASSIGN
+// `define RANDOMIZE
+// `endif
+// `ifdef RANDOMIZE_REG_INIT
+// `define RANDOMIZE
+// `endif
+// `ifdef RANDOMIZE_MEM_INIT
+// `define RANDOMIZE
+// `endif
+// `ifndef RANDOM
+// `define RANDOM $random
+// `endif
+// `ifdef RANDOMIZE_MEM_INIT
+//   integer initvar;
+// `endif
+// `ifndef SYNTHESIS
+// `ifdef FIRRTL_BEFORE_INITIAL
+// `FIRRTL_BEFORE_INITIAL
+// `endif
+// initial begin
+//   `ifdef RANDOMIZE
+//     `ifdef INIT_RANDOM
+//       `INIT_RANDOM
+//     `endif
+//     `ifndef VERILATOR
+//       `ifdef RANDOMIZE_DELAY
+//         #`RANDOMIZE_DELAY begin end
+//       `else
+//         #0.002 begin end
+//       `endif
+//     `endif
+// `ifdef RANDOMIZE_REG_INIT
+//   _RAND_0 = {1{`RANDOM}};
+//   resBuff = _RAND_0[7:0];
+//   _RAND_1 = {1{`RANDOM}};
+//   count = _RAND_1[1:0];
+// `endif // RANDOMIZE_REG_INIT
+//   `endif // RANDOMIZE
+// end // initial
+// `ifdef FIRRTL_AFTER_INITIAL
+// `FIRRTL_AFTER_INITIAL
+// `endif
+// `endif // SYNTHESIS
 endmodule

@@ -312,14 +312,14 @@ initial begin
       `endif
     `endif
 `ifdef RANDOMIZE_REG_INIT
-  // _RAND_0 = {1{`RANDOM}};
-  // resBuff = _RAND_0[7:0];
-  // _RAND_1 = {1{`RANDOM}};
-  // count = _RAND_1[1:0];
-  _RAND_0 = 8'h0;
+  _RAND_0 = {1{`RANDOM}};
   resBuff = _RAND_0[7:0];
-  _RAND_1 = 8'h0;
+  _RAND_1 = {1{`RANDOM}};
   count = _RAND_1[1:0];
+  // _RAND_0 = 8'h0;
+  // resBuff = _RAND_0[7:0];
+  // _RAND_1 = 8'h0;
+  // count = _RAND_1[1:0];
 `endif // RANDOMIZE_REG_INIT
   `endif // RANDOMIZE
 end // initial

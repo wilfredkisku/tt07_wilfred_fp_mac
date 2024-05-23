@@ -7,8 +7,6 @@ TOPLEVEL_LANG ?= verilog
 SRC_DIR = $(PWD)/../src
 PROJECT_SOURCES = MAC_TOP_FP8.v
 
-COCOTB_RESOLVE_X = ZEROS
-
 ifneq ($(GATES),yes)
 
 # RTL simulation:

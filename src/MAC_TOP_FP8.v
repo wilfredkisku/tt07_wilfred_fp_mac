@@ -272,8 +272,10 @@ module tt_um_fp_mac(
       count <= 2'h0; // @[MAC_TOP.scala 57:22]
     end else if (count == 2'h3) begin // @[MAC_TOP.scala 64:15]
       count <= 2'h0;
-    end else begin
+    end else if (count < 2'h3) begin
       count <= _count_T_2;
+    end else begin
+      count <= 2'h0;
     end
   end
 // Register and memory initialization

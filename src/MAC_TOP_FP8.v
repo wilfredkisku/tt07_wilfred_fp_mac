@@ -219,7 +219,7 @@ module tt_um_fp_mac(
   output [7:0] uo_out,
   output [7:0] uio_out,
   output [7:0] uio_oe, 	// IOs: Enable path (active high: 0=input, 1=output)
-  input        ena,     // always 1 when the design is powered, so you can ignore it
+  input        ena     // always 1 when the design is powered, so you can ignore it
   //output       io_valid
 );
 `ifdef RANDOMIZE_REG_INIT

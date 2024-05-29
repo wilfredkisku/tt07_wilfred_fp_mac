@@ -18,13 +18,13 @@ This IEEE 754 format for a 8-bit FP precision for addition and multiplication is
 | Details of FP8  | Binary Formats |
 | :----------- | :------------: |
 |Exponent Bias|15|
-|Infinites|S.11111.00_2|
-|NaN|S.11111.XX_2|
-|Zero|S.00000.00|
-|Max Normal|S.11110.11_2|
-|Min Normal|S.00001.00_2|
-|Max Subnormal|S.00000.11_2|
-|Min Subnormal|S.00000.01_2|
+|Infinites|S.11111.00$$_2$$|
+|NaN|S.11111.XX$$_2$$|
+|Zero|S.00000.00$$_2$$|
+|Max Normal|S.11110.11$$_2$$|
+|Min Normal|S.00001.00$$_2$$|
+|Max Subnormal|S.00000.11$$_2$$|
+|Min Subnormal|S.00000.01$$_2$$|
 
 Though this format is highly limited in precision and range compared to standard floating-point formats like IEEE 754 single-precision (32-bit) or double-precision (64-bit). It would likely be used in specialized scenarios where memory is at a premium or where precision beyond this level is unnecessary. The MAC operations can be verified on the 8-bit FP data, with both addition and multiplication.
 

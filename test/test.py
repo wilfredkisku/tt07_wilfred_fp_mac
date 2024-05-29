@@ -44,3 +44,4 @@ async def test_project(dut):
     await ClockCycles(dut.clk, 4)
 
     assert dut.uo_out.value == 0xC4
+    await ClockCycles(dut.clk, 1)
